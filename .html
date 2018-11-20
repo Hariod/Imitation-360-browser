@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>360产品介绍页</title>
+		<style>
+			/*交集选择器*/
+			.section.current h3{
+				font-size:100px;
+			}
+		</style>
+		<script src="libs/jquery-1.11.1.min.js"></script>
+		<script src="libs/jquery.fullPage.min.js"></script>
+	</head>
+
+	<body>
+		<div id="dowebok">
+			<div class="section first">
+				<h3>第一屏</h3>
+			</div>
+			<div class="section second">
+				<h3>第二屏</h3>
+			</div>
+			<div class="section">
+				<h3>第三屏</h3>
+				<!--<div class="slide">第三屏的第一屏</div>
+        		<div class="slide">第三屏的第二屏</div>
+        		<div class="slide">第三屏的第三屏</div>
+        		<div class="slide">第三屏的第四屏</div>-->
+			</div>
+			<div class="section">
+				<h3>第四屏</h3>
+			</div>
+			<div class="section">
+				<h3>第五屏</h3>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$('#dowebok').fullpage({
+//				设置每一屏的背景色
+				sectionsColor:["red","blue","yellow","black","pink"],
+				//使用函数
+				afterLoad:function(anchorLink,index){
+					$(".section").removeClass("current"); 
+//					alert(index);
+					$(".section").eq(index-1).addClass("current");
+				}
+			});
+			
+		});
+	</script>
+
+</html>
